@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Carro } from '../../models/carro';
 
+@IonicPage()
 @Component({
   selector: 'page-acessorios',
   templateUrl: 'acessorios.html'

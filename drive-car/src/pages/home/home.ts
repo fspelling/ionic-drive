@@ -44,6 +44,6 @@ export class HomePage implements NavLifeCircle {
 
   selectCar(carroSelecionado: Carro) {
     console.log(carroSelecionado);
-    this.navCtrl.push(AcessoriosPage, { carroSelecionado });
+    this.navCtrl.push(AcessoriosPage.name, { carroSelecionado });
   }
 }
