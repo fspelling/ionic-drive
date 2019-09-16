@@ -11,6 +11,8 @@ export class AgendamentoServiceProvider {
     constructor(private http: HttpClient) { }
 
     agendar(agendamento: Agendamento): Observable<any> {
-        return this.http.post(API_URL + '/agendamento/agenda', agendamento);
+        return this.http.post(API_URL + '/agendamento/agenda', agendamento)
+                            .do(() => agendamento.enviado = true)
+                            .catch(error => Observable.of(new Error('Falha ao realizar agendamento')));
     }
 }
