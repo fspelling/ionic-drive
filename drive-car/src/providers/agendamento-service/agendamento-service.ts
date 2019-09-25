@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Agendamento } from '../../models/agendamento';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'http://192.168.188.127:8080/api';
 
 @Injectable()
 export class AgendamentoServiceProvider {

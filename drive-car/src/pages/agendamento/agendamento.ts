@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
+import { Vibration } from '@ionic-native/vibration';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { Carro } from '../../models/carro';
 import { AgendamentoServiceProvider } from '../../providers/agendamento-service/agendamento-service';
@@ -22,11 +24,13 @@ export class AgendamentoPage {
   alerta: Alert;
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public agendamentoService: AgendamentoServiceProvider,
-    public alertCtrl: AlertController,
-    public agendamentoDao: AgendamentoDaoProvider) {
+    private navCtrl: NavController,
+    private navParams: NavParams,
+    private agendamentoService: AgendamentoServiceProvider,
+    private alertCtrl: AlertController,
+    private agendamentoDao: AgendamentoDaoProvider,
+    private vibration: Vibration,
+    private datePicker: DatePicker) {
   }
 
   ionViewDidLoad() {
@@ -39,8 +43,17 @@ export class AgendamentoPage {
     this.dataUsuario = new Date().toISOString();
   }
 
+  selecionarData() {
+    this.datePicker.show({
+      date: new Date(),
+      mode: 'date'
+    }).then(date => this.dataUsuario = date.toISOString());
+  }
+
   agendar() {
     if (!this.nomeUsuario || !this.enderecoUsuario || !this.dataUsuario) {
+      this.vibration.vibrate(500);
+
       this.alertCtrl.create({
         title: 'Aviso',
         subTitle: 'Preencher os campos obrigatorios',

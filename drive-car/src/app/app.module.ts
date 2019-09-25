@@ -5,12 +5,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { Vibration } from '@ionic-native/vibration';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CarroServiceProvider } from '../providers/carro-service/carro-service';
 import { AgendamentoServiceProvider } from '../providers/agendamento-service/agendamento-service';
 import { AgendamentoDaoProvider } from '../providers/agendamento-dao/agendamento-dao';
+import { LoginPage } from '../pages/login/login';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/do';
@@ -22,7 +26,8 @@ import 'rxjs/add/observable/of';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import 'rxjs/add/observable/of';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -45,7 +51,10 @@ import 'rxjs/add/observable/of';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CarroServiceProvider,
     AgendamentoServiceProvider,
-    AgendamentoDaoProvider
+    AgendamentoDaoProvider,
+    UserServiceProvider,
+    Vibration,
+    DatePicker
   ]
 })
 export class AppModule {}

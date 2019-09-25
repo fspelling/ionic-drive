@@ -24,9 +24,9 @@
       <ion-input name="email" [(ngModel)]="emailUsuario"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item (click)="selecionarData()">
       <ion-label stacked>Data:</ion-label>
-      <ion-datetime displayFormat="DD/MM/YY" name="data" [(ngModel)]="dataUsuario"></ion-datetime>
+      <!--<ion-datetime displayFormat="DD/MM/YY" name="data" [(ngModel)]="dataUsuario"></ion-datetime>-->
     </ion-item>
   </form>
 
