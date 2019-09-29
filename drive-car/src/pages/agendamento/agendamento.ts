@@ -80,7 +80,8 @@ export class AgendamentoPage {
       precoTotal: this.precoTotal,
       data: this.dataUsuario,
       enviado: false,
-      confirmado: false
+      confirmado: false,
+      visualizado: false
     };
 
     this.agendamentoDao.ehDuplicado(agendamento)

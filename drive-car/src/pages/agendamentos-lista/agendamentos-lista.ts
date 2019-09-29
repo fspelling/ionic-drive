@@ -26,6 +26,19 @@ export class AgendamentosListaPage {
       .subscribe(resultAgendamentos => this.agendamentos = resultAgendamentos);
   }
 
+  ionViewWillEnter() {
+    setTimeout(() => this.atualizarListaConfirmados(), 5000);
+  }
+
+  atualizarListaConfirmados() {
+    this.agendamentos
+      .filter((agendamento: Agendamento) => agendamento.confirmado)
+      .forEach((agendamento: Agendamento) => {
+        agendamento.visualizado = true;
+        this.agendamentoDao.salvar(agendamento);
+      })
+  }
+
   reenviar(agendamento: Agendamento) {
     this.alerta = this.alertCtrl.create({
       title: 'Aviso',

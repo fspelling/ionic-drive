@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Vibration } from '@ionic-native/vibration';
 import { DatePicker } from '@ionic-native/date-picker';
+import { Camera } from '@ionic-native/camera';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -54,7 +56,9 @@ import 'rxjs/add/observable/of';
     AgendamentoDaoProvider,
     UserServiceProvider,
     Vibration,
-    DatePicker
+    DatePicker,
+    Camera,
+    OneSignal
   ]
 })
 export class AppModule {}

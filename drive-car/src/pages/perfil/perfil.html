@@ -8,10 +8,10 @@
   <ion-item>
     <div class="avatar-wrapper">
       <ion-avatar>
-        <img src="../../assets/imgs/avatar-padrao.jpg" />
+        <img [src]="avatar" />
       </ion-avatar>
 
-      <button class="btn-tirar-foto" ion-button icon-only round>
+      <button class="btn-tirar-foto" (click)="tirarFoto()" ion-button icon-only round>
         <ion-icon name="camera"></ion-icon>
       </button>
     </div>

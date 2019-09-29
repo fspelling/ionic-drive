@@ -7,4 +7,5 @@ export interface Agendamento {
     data: string;
     enviado: boolean; // Usado no storage
     confirmado: boolean; // Usado no storage
+    visualizado: boolean;
 }
